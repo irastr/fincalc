@@ -1,0 +1,17 @@
+@mixin ui-reset-btn {
+  background: none;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin reset-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@mixin rem($size) {
+  font-size: $size / $basic-font-size + rem;
+}
