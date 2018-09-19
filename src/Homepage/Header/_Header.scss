@@ -24,7 +24,8 @@
   text-transform: uppercase;
 }
 
-.header__title {
+.header__title,
+.result__title {
   @include rem(25);
   color: $dark-blue;
 }

@@ -7,8 +7,8 @@ const Header = () => {
         <h1 className="header__title">Рассчитайте пассивный доход</h1>
       </div>
       <div className="header__btns-wrap">
-        <button className=" header__btn header__btn-usd ui-btn">usd</button>
-        <button className=" header__btn header__btn-uah ui-btn">uah</button>
+        <button className=" header__btn header__btn--usd ui-btn">usd</button>
+        <button className=" header__btn header__btn--uah ui-btn">uah</button>
       </div>
     </div>
   );

@@ -47,7 +47,9 @@
   @include rem(20);
 }
 
-.percent__caption {
+.percent__caption,
+.result__month-caption,
+.result__annual-caption {
   @include rem(16);
   color: $darkgray;
 }

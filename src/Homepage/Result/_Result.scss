@@ -1,0 +1,40 @@
+.result__annual-wrap,
+.result__month-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.result__numbers-wrap {
+  display: flex;
+}
+
+.result__annual-wrap {
+  margin-right: 30px;
+}
+
+.result__annual-number,
+.result__month-number {
+  font-weight: bold;
+  color: $dark-blue;
+  @include rem(20);
+}
+
+.result__btn {
+  @include ui-reset-btn;
+  border-radius: 30px;
+  background-color: $yellow;
+  color: $dark-blue;
+  font-weight: bold;
+  min-width: 412px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include rem(20);
+  margin-top: 30px;
+}
+
+.result__wrap {
+  padding-top: 30px;
+}
+
+.result__title {
+  margin-top: 0;
+}
