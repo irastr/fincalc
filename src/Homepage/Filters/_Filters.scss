@@ -1,0 +1,53 @@
+.filters-wrap {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $darkgray;
+}
+
+.summ-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time-wrap,
+.payments-wrap,
+.percent-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.summ__range-wrap,
+.time__range-wrap {
+  width: 300px;
+}
+
+.filters__title {
+  color: $dark-blue;
+  font-weight: bold;
+}
+
+.payments__btn {
+  min-width: 100px;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.percent__quantity-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.percent__quantity {
+  color: $dark-blue;
+  font-weight: bold;
+  @include rem(20);
+}
+
+.percent__caption {
+  @include rem(16);
+  color: $darkgray;
+}
