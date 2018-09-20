@@ -2,11 +2,39 @@ import React, { Component } from "react";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 
+import { data } from "../../db";
+
 class Filters extends Component {
   state = {
     value: 50000,
-    value2: 20,
-    percent: 21
+    value2: 4,
+    percent: 0,
+    currency: "USD",
+    paymentType: "month",
+    summ: 0
+  };
+
+  getPercent = () => {
+    let percentNew;
+    data.forEach(item => {
+      if (
+        item.currency === this.state.currency &&
+        item.term.indexOf(this.state.value2) !== -1
+      ) {
+        if (this.state.paymentType === "month") {
+          percentNew = item.month;
+        } else if (this.state.paymentType === "annual") {
+          percentNew = item.annual;
+        }
+      }
+    });
+
+    this.setState({ percent: percentNew }, () => {
+      let summNew = ((this.state.percent / 100) * this.state.value) / 12;
+      this.setState(prevState => {
+        return { summ: summNew };
+      });
+    });
   };
 
   render() {
@@ -34,6 +62,8 @@ class Filters extends Component {
               minValue={3}
               value={this.state.value2}
               onChange={value2 => this.setState({ value2: value2 })}
+              // onChange={() => this.change()}
+              // onChange={this.onValueChange(value2)}
               formatLabel={value2 => `${value2} мес`}
             />
           </div>
@@ -58,6 +88,9 @@ class Filters extends Component {
             <span className="percent__caption">зависит от срока и валюты</span>
           </div>
         </div>
+
+        <button onClick={() => this.getPercent()}>Get summ</button>
+        <p> {`${this.state.summ}$`}</p>
       </div>
     );
   }
