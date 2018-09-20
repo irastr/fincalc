@@ -10,10 +10,7 @@
 
 .ui-btn {
   @include ui-reset-btn;
-  background: $green;
-  height: 30px;
-  border-radius: 15px;
-  color: $white;
+  @include ui-btn;
 }
 
 .header__btn {

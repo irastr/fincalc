@@ -17,5 +17,14 @@
 }
 
 @mixin ui-btn {
+  background: transparent;
+  height: 30px;
+  border-radius: 15px;
+  color: $dark-blue;
+  font-weight: bold;
+}
+
+@mixin ui-btn--active {
   background: $green;
+  color: $white;
 }
