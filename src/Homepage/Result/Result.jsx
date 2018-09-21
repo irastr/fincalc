@@ -5,10 +5,7 @@ import { withRouter } from "react-router-dom";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class Result extends Component {
-  state = {
-    annual: 0,
-    month: 0
-  };
+  state = {};
   render() {
     return (
       <div className="result__wrap">
@@ -16,7 +13,9 @@ class Result extends Component {
         <div className="result__numbers-wrap">
           <div className="result__annual-wrap">
             <span className="result__annual-number">
-              {`${Math.ceil(this.props.summAnnual)}$`}
+              {Math.ceil(this.props.summAnnual)}
+
+              {this.props.currency === "USD" ? "грн." : "$"}
             </span>
             <span className="result__annual-caption">
               {" "}

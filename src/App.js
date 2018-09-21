@@ -41,16 +41,43 @@ class App extends Component {
       }
     });
 
-    this.setState({ percent: percentNew }, () => {
-      let summNew = ((this.state.percent / 100) * this.state.value) / 12;
-      let summAnnualNew = summNew * this.state.value2;
-      this.setState(prevState => {
-        return {
-          summ: summNew,
-          summAnnual: summAnnualNew
-        };
+    if (this.state.paymentType === "month") {
+      this.setState({ percent: percentNew }, () => {
+        let summNew = ((this.state.percent / 100) * this.state.value) / 12;
+        let summAnnualNew = summNew * this.state.value2;
+        this.setState(prevState => {
+          return {
+            summ: summNew,
+            summAnnual: summAnnualNew
+          };
+        });
       });
-    });
+    } else {
+      this.setState({ percent: percentNew }, () => {
+        let b = this.state.percent / 100;
+        let a = Math.pow(1 + b / 12, this.state.value2);
+        let summAnnualNew = this.state.value * a - this.state.value;
+        let summNew = summAnnualNew / this.state.value2;
+
+        this.setState(prevState => {
+          return {
+            summ: summNew,
+            summAnnual: summAnnualNew
+          };
+        });
+      });
+    }
+
+    // this.setState({ percent: percentNew }, () => {
+    //   let summNew = ((this.state.percent / 100) * this.state.value) / 12;
+    //   let summAnnualNew = summNew * this.state.value2;
+    //   this.setState(prevState => {
+    //     return {
+    //       summ: summNew,
+    //       summAnnual: summAnnualNew
+    //     };
+    //   });
+    // });
   };
 
   changeTime = value2 => {
@@ -142,6 +169,7 @@ class App extends Component {
                   activeMonth={this.state.activeMonth}
                   summAnnual={this.state.summAnnual}
                   summ={this.state.summ}
+                  currency={this.state.currency}
                 />
               )}
             />
