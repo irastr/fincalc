@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+// import { Route, Redirect } from 'react-router'
 import Homepage from "./Homepage/Homepage";
 import Summary from "./Summary/Summary";
 import { data } from "./db";
+
+import { withRouter } from "react-router-dom";
 
 import InputRange from "react-input-range";
 
@@ -19,7 +22,8 @@ class App extends Component {
     activeAnnual: true,
     activeMonth: false,
     activeUsd: true,
-    activeUah: false
+    activeUah: false,
+    invest: true
   };
 
   getPercent = () => {
@@ -117,7 +121,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <Router>
-          <Switch>
+          {/* <Switch> */}
+          <div>
             <Route
               exact
               path="/"
@@ -140,8 +145,23 @@ class App extends Component {
                 />
               )}
             />
-            <Route path="/summary" component={Summary} />
-          </Switch>
+            <Route
+              path="/summary"
+              render={props => (
+                <Summary
+                  {...props}
+                  currency={this.state.currency}
+                  value1={this.state.value}
+                  value2={this.state.value2}
+                  paymentType={this.state.paymentType}
+                  percent={this.state.percent}
+                  summAnnual={this.state.summAnnual}
+                  summ={this.state.summ}
+                />
+              )}
+            />
+            {/* </Switch> */}
+          </div>
         </Router>
       </React.Fragment>
     );
@@ -149,3 +169,16 @@ class App extends Component {
 }
 
 export default App;
+
+// const ButtonToNavigate = ({ title, history }) => (
+//   <button type="button" onClick={() => history.push("/summary")}>
+//     {title}
+//   </button>
+// );
+
+// const Summary = () => (
+//   <Route
+//     path="/"
+//     render={props => <ButtonToNavigate {...props} title="Navigate elsewhere" />}
+//   />
+// );

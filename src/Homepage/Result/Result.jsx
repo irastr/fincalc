@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 import { withRouter } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class Result extends Component {
   state = {
@@ -31,7 +32,10 @@ class Result extends Component {
             <span className="result__month-caption"> ежимесячно </span>
           </div>
         </div>
-        <button className="result__btn">Инвестировать</button>
+
+        <Link to="/summary">
+          <button className="result__btn">Инвестировать</button>
+        </Link>
       </div>
     );
   }
