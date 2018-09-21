@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
-
-// import { data } from "../../db";
 
 const Filters = ({
   value1,
@@ -12,13 +10,11 @@ const Filters = ({
   changePaymentType,
   percent,
   activeAnnual,
-  activeMonth
+  activeMonth,
+  currency
 }) => {
-  // render() {
   let btnClassAnnual = activeAnnual ? "ui-btn--active" : "ui-btn";
   let btnClassMonth = activeMonth ? "ui-btn--active" : "ui-btn";
-  // let btnClassUsd = this.state.activeUsd ? "ui-btn--active" : "ui-btn";
-  // let btnClassUah = this.state.activeUah ? "ui-btn--active" : "ui-btn";
 
   return (
     <React.Fragment>
@@ -32,7 +28,9 @@ const Filters = ({
               minValue={1000}
               value={value1}
               onChange={value => changeAmount(value)}
-              formatLabel={value => `${value} $`}
+              formatLabel={value =>
+                `${value} ${currency === "USD" ? "$" : "грн."}`
+              }
             />
           </div>
         </div>

@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { Route, Redirect } from 'react-router'
 import Homepage from "./Homepage/Homepage";
 import Summary from "./Summary/Summary";
 import { data } from "./db";
-
-import { withRouter } from "react-router-dom";
-
-import InputRange from "react-input-range";
 
 class App extends Component {
   state = {

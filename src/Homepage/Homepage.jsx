@@ -17,7 +17,8 @@ const Homepage = ({
   activeAnnual,
   activeMonth,
   summAnnual,
-  summ
+  summ,
+  currency
 }) => {
   return (
     <div className="calc-wrap">
@@ -35,8 +36,9 @@ const Homepage = ({
         percent={percent}
         activeAnnual={activeAnnual}
         activeMonth={activeMonth}
+        currency={currency}
       />
-      <Result summAnnual={summAnnual} summ={summ} />
+      <Result summAnnual={summAnnual} summ={summ} currency={currency} />
     </div>
   );
 };

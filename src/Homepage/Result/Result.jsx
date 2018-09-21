@@ -1,43 +1,39 @@
-import React, { Component } from "react";
+import React from "react";
 
-import { withRouter } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+const Result = ({ summ, summAnnual, currency }) => {
+  return (
+    <div className="result__wrap">
+      <h1 className="result__title"> Ваш пассивный доход</h1>
+      <div className="result__numbers-wrap">
+        <div className="result__annual-wrap">
+          <span className="result__annual-number">
+            {Math.ceil(summAnnual)}
 
-class Result extends Component {
-  state = {};
-  render() {
-    return (
-      <div className="result__wrap">
-        <h1 className="result__title"> Ваш пассивный доход</h1>
-        <div className="result__numbers-wrap">
-          <div className="result__annual-wrap">
-            <span className="result__annual-number">
-              {Math.ceil(this.props.summAnnual)}
-
-              {this.props.currency === "USD" ? "грн." : "$"}
-            </span>
-            <span className="result__annual-caption">
-              {" "}
-              за весь срок вложения{" "}
-            </span>
-          </div>
-
-          <div className="result__month-wrap">
-            <span className="result__month-number">
-              {" "}
-              {`${Math.ceil(this.props.summ)}$`}{" "}
-            </span>
-            <span className="result__month-caption"> ежимесячно </span>
-          </div>
+            {currency === "USD" ? "$" : "грн."}
+          </span>
+          <span className="result__annual-caption">
+            {" "}
+            за весь срок вложения{" "}
+          </span>
         </div>
 
-        <Link to="/summary">
-          <button className="result__btn">Инвестировать</button>
-        </Link>
+        <div className="result__month-wrap">
+          <span className="result__month-number">
+            {" "}
+            {Math.ceil(summ)}
+            {currency === "USD" ? "$" : "грн."}
+          </span>
+          <span className="result__month-caption"> ежимесячно </span>
+        </div>
       </div>
-    );
-  }
-}
+
+      <Link to="/summary">
+        <button className="result__btn">Инвестировать</button>
+      </Link>
+    </div>
+  );
+};
 
 export default Result;
