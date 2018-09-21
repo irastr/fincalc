@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__btns-wrap {
+  display: flex;
+}
+
+.ui-btn {
+  @include ui-reset-btn;
+  @include ui-btn;
+}
+
+.header__btn {
+  min-width: 55px;
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+  text-transform: uppercase;
+}
+
+.header__title,
+.result__title {
+  @include rem(25);
+  color: $dark-blue;
+}
