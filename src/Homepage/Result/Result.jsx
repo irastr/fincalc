@@ -25,7 +25,7 @@ const Result = ({ summ, summAnnual, currency }) => {
             {Math.ceil(summ)}
             {currency === "USD" ? "$" : "грн."}
           </span>
-          <span className="result__month-caption"> ежимесячно </span>
+          <span className="result__month-caption"> ежемесячно </span>
         </div>
       </div>
 
