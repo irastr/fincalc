@@ -1,11 +1,8 @@
 {
+  "homepage": "http://irastr.github.io/fincalc",
   "name": "fincalc",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "npm": "6.3.0",
-    "node": "8.11.2"
-  },
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -30,7 +27,6 @@
     "file-loader": "1.1.5",
     "firebase": "^5.5.1",
     "fs-extra": "3.0.1",
-    "heroku": "^7.16.0",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "object-assign": "4.1.1",
@@ -55,7 +51,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -100,8 +98,10 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.0",
     "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0"
+  }
+}
     "sass-loader": "^7.1.0"
   }
 }
