@@ -7,12 +7,9 @@ import {
   Switch,
   HashRouter
 } from "react-router-dom";
-// import { Route, Redirect } from 'react-router'
+
 import Homepage from "./Homepage/Homepage";
 import Summary from "./Summary/Summary";
-import { data } from "./db";
-
-import fire from "./fire";
 
 class App extends Component {
   state = {

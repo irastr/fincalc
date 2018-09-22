@@ -35,9 +35,9 @@ const Summary = ({
         <h1 className="result__title"> Ваш пассивный доход</h1>
         <div className="result__numbers-wrap">
           <div className="result__annual-wrap">
-            <span className="result__annual-number">{`${Math.ceil(
-              summAnnual
-            )}$`}</span>
+            <span className="result__annual-number">
+              {Math.ceil(summAnnual)} {currency === "USD" ? "$" : "грн."}
+            </span>
             <span className="result__annual-caption">
               {" "}
               за весь срок вложения{" "}
@@ -46,7 +46,8 @@ const Summary = ({
 
           <div className="result__month-wrap">
             <span className="result__month-number">
-              {`${Math.ceil(summ)}$`}
+              {Math.ceil(summ)}
+              {currency === "USD" ? "$" : "грн."}
             </span>
             <span className="result__month-caption"> ежемесячно </span>
           </div>
