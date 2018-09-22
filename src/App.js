@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  HashRouter
+} from "react-router-dom";
 // import { Route, Redirect } from 'react-router'
 import Homepage from "./Homepage/Homepage";
 import Summary from "./Summary/Summary";
@@ -154,7 +160,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Router>
+        <HashRouter>
           {/* <Switch> */}
           <div>
             <Route
@@ -197,7 +203,7 @@ class App extends Component {
             />
             {/* </Switch> */}
           </div>
-        </Router>
+        </HashRouter>
       </React.Fragment>
     );
   }
