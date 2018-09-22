@@ -26,10 +26,6 @@ class App extends Component {
   };
 
   componentWillMount() {
-    // fetch("https://api.myjson.com/bins/10zs30")
-    //   .then(response => response.json())
-    //   .then(data => this.setState({ data: [...data] }));
-
     fetch("https://api.myjson.com/bins/10zs30")
       .then(response => {
         if (response.status !== 200) {
