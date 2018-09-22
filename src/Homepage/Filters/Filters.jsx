@@ -56,7 +56,7 @@ const Filters = ({
               onClick={() => changePaymentType("month")}
               className={`${btnClassAnnual} payments__btn `}
             >
-              ежимесячно
+              ежемесячно
             </button>
             <button
               onClick={() => changePaymentType("annual")}
