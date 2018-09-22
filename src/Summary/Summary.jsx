@@ -25,7 +25,7 @@ const Summary = ({
         <span className="summary__title">Срок: {` ${value2} месяцев`}</span>
         <span className="summary__title">
           Выплата процентов:{" "}
-          {paymentType === "month" ? "ежимесячно" : "в конце срока"}
+          {paymentType === "month" ? "ежемесячно" : "в конце срока"}
         </span>
         <span className="summary__title">
           Процентная ставка: {` ${percent} %`}
@@ -48,7 +48,7 @@ const Summary = ({
             <span className="result__month-number">
               {`${Math.ceil(summ)}$`}
             </span>
-            <span className="result__month-caption"> ежимесячно </span>
+            <span className="result__month-caption"> ежемесячно </span>
           </div>
         </div>
 
