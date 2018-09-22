@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // import { Route, Redirect } from 'react-router'
 import Homepage from "./Homepage/Homepage";
 import Summary from "./Summary/Summary";
 import { data } from "./db";
+
+import fire from "./fire";
 
 class App extends Component {
   state = {
@@ -19,12 +21,36 @@ class App extends Component {
     activeMonth: false,
     activeUsd: true,
     activeUah: false,
-    invest: true
+    invest: true,
+    data: []
   };
+
+  componentWillMount() {
+    // fetch("https://api.myjson.com/bins/10zs30")
+    //   .then(response => response.json())
+    //   .then(data => this.setState({ data: [...data] }));
+
+    fetch("https://api.myjson.com/bins/10zs30")
+      .then(response => {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+
+        response.json().then(data => {
+          this.setState({ data: [...data] });
+        });
+      })
+      .catch(function(err) {
+        console.log("Fetch Error :-S", err);
+      });
+  }
 
   getPercent = () => {
     let percentNew;
-    data.forEach(item => {
+    this.state.data.forEach(item => {
       if (
         item.currency === this.state.currency &&
         item.term.indexOf(this.state.value2) !== -1
@@ -63,17 +89,6 @@ class App extends Component {
         });
       });
     }
-
-    // this.setState({ percent: percentNew }, () => {
-    //   let summNew = ((this.state.percent / 100) * this.state.value) / 12;
-    //   let summAnnualNew = summNew * this.state.value2;
-    //   this.setState(prevState => {
-    //     return {
-    //       summ: summNew,
-    //       summAnnual: summAnnualNew
-    //     };
-    //   });
-    // });
   };
 
   changeTime = value2 => {
@@ -193,16 +208,3 @@ class App extends Component {
 }
 
 export default App;
-
-// const ButtonToNavigate = ({ title, history }) => (
-//   <button type="button" onClick={() => history.push("/summary")}>
-//     {title}
-//   </button>
-// );
-
-// const Summary = () => (
-//   <Route
-//     path="/"
-//     render={props => <ButtonToNavigate {...props} title="Navigate elsewhere" />}
-//   />
-// );
