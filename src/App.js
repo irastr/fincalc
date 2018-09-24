@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  HashRouter
-} from "react-router-dom";
+// eslint-disable-next-line
+import { BrowserRouter as Router, Route, HashRouter } from "react-router-dom";
 
 import Homepage from "./Homepage/Homepage";
 import Summary from "./Summary/Summary";

@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+// eslint-disable-next-line
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const Summary = ({
   currency,
@@ -21,7 +22,7 @@ const Summary = ({
           Валюта:
           {` ${currency}`}{" "}
         </span>
-        <span className="summary__title">Сумма: {` ${value1}`}</span>
+        <span className="summary__title">Сумма: {` ${value1}`} </span>
         <span className="summary__title">Срок: {` ${value2} месяцев`}</span>
         <span className="summary__title">
           Выплата процентов:{" "}

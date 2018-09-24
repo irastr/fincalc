@@ -22,9 +22,7 @@ body {
   height: 30px;
   border-radius: 15px;
   font-weight: bold;
-  outline: none;
-  cursor: pointer;
-  border: none;
+  @include ui-reset-btn;
 }
 
 .ui-btn {
@@ -33,7 +31,5 @@ body {
   border-radius: 15px;
   color: $dark-blue;
   font-weight: bold;
-  outline: none;
-  cursor: pointer;
-  border: none;
+  @include ui-reset-btn;
 }
