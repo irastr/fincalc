@@ -30,7 +30,7 @@ const Result = ({ summ, summAnnual, currency }) => {
       </div>
 
       <Link to="/summary">
-        <button className="result__btn">Инвестировать</button>
+        <button className="result__btn wiggle">Инвестировать</button>
       </Link>
     </div>
   );
